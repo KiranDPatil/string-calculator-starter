@@ -3,6 +3,7 @@ package calculator;
 class StringCalculator {
 
     public int add(String input) {
+    	
 String [] arr = input.split(",|\n");
     	
         if(input.isEmpty()) {
@@ -14,12 +15,15 @@ String [] arr = input.split(",|\n");
     		return getSum(arr);
     	}
 
+
     }
     
     private int getSum(String[] numbers)  {
     	int sum = 0;
     	for(int index = 0; index < numbers.length;index++) {
-    		sum = stringToInt(numbers[index]) + sum;
+    		if(stringToInt(numbers[index])<=1000) {
+    			sum = Integer.parseInt(numbers[index]) + sum;
+    		}
     		
     	}
     	
@@ -32,7 +36,7 @@ String [] arr = input.split(",|\n");
         } else {
             return num;
         }
-    }
     
-  
+    
+    }
 }
